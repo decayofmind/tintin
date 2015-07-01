@@ -1,2 +1,3 @@
 *.py[co]
-tintin.egg-info/
+tintin.egg-info
+test_tintin/credentials_private.py
