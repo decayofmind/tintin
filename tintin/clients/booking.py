@@ -101,3 +101,15 @@ class BookingClient(BookingApi):
                                                        guest_qty=str(guest_qty),
                                                        **kwargs)
         return BaseCollection(*list(hotel_availability))
+
+    def get_changed_hotels(self, last_change, facilities="ids", rooms=False, **kwargs):
+        """
+        Return list of hotels changed from last_date.
+        :param facilities: Fetch room facilities (as names, ids or none).
+        :param rooms:  Fetch rooms.
+        :param last_change: Date since changes retrieved from.
+        :param city_ids:   Limit the results to these cities. (optional)
+        :return: :rtype: List of Hotel objects
+        """
+        hotels = self.getChangedHotels(last_change=last_change, **kwargs)
+        return self.get_hotels(hotel_ids=','.join([hotel.hotel_id for hotel in hotels]), facilities=facilities, rooms=rooms)
