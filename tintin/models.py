@@ -1,8 +1,8 @@
 from decimal import Decimal
 from pprint import pprint
 
-from bookinganalytics.errors import GenericError
-from bookinganalytics.helpers import cached_property
+from tintin.errors import GenericError
+from tintin.helpers import cached_property
 
 
 class BaseDTO(object):
